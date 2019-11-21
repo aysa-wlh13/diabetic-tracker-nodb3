@@ -1,0 +1,11 @@
+.header{
+    height: 9vh;
+    width: 100%;
+    background-color: black;
+    position: fixed;
+    top: 0px;
+    z-index: 5;
+    display: flex;
+	justify-content: space-between;
+    align-items: center;
+}
