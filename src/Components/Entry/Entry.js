@@ -5,7 +5,9 @@ class Entry extends Component {
 
     render(){
         return(
-            <div>Entry</div>
+            <div className='Entry'>
+                Entry
+            </div>
         )
     }
 }
