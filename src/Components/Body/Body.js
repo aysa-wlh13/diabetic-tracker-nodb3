@@ -32,7 +32,10 @@ class Body extends Component {
 
 
       //handel input
-
+      handleInput = e => {
+        const { name, value } = e.target;
+        this.setState({ [name]: value });
+      };
 
 
       //Post
@@ -47,21 +50,41 @@ class Body extends Component {
         )
       }
 
-      //Put
-
-
       //Delete
+      deleteTracker = index => {
+          axios.delete(`api/tracker/${index}`)
+          .then(res => this.setState({
+            tracker: res.data
+        })
+        .catch(error => {console.log(error)})
+      )
+      }
 
-      
+      //Put
+      updateState = updateTracker => {
+          this.setState({
+              tracker: updateTracker
+          })
+      }
+
 
     render(){
         return(
             <div className='back'>
-                <Entry/>
 
-                <section>
-                    <Add addToTracker = {this.addToTracker}/>
+                <section className= 'entry-styling'>
+                    {this.state.tracker.map((element, index) => {
+                        return(
+                            <Entry/>
+                        )
+                    })}
                 </section>
+
+                <article>
+                    <Add
+                    addToTracker = {this.addToTracker}/>
+                </article>
+
             </div>
         )
     }

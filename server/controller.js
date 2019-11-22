@@ -1,5 +1,6 @@
-const tracker = [
+let tracker = [
     {
+        id: 0,
         bloodSugar: 70,
         food: 'juice',
         grams: 12,
@@ -9,6 +10,7 @@ const tracker = [
         date: '11/18/19'
     },
     {
+        id: 1,
         bloodSugar: 200,
         food: '',
         grams: '',
@@ -18,6 +20,7 @@ const tracker = [
         date: '11/18/19'
     },   
     {
+        id: 2,
         bloodSugar: 150,
         food: 'mashed potato',
         grams: 59,
@@ -53,12 +56,31 @@ module.exports = {
 
     //put
     editTracker(req, res){
-        const {index, newTracker} = req.body;
+        console.log('hit update', req.body)
 
-        tracker[index] = newTracker;
+        let {id} = req.params
+
+        let index = tracker.findIndex(element => +id === element.id)
+
+        console.log(index)
+
+        if (index === -1) res.status(404).send('Could not find a matching tracker')
+
+        tracker[index] = req.body
 
         res.status(200).send(tracker);
-    }
 
- 
+    }
 };
+
+// updateCompletion: (req, res) => {
+//     console.log('hit update', req.params)
+//     let { id } = req.params
+//     //could instead refer to req.params.id everywhere
+//     let index = data.findIndex(element => +id === element.id)
+
+//     if (index === -1) res.status(404).send('Could not find a matching todo')
+
+//     data[index].completed = !data[index].completed
+//     res.status(200).send(data)
+// }

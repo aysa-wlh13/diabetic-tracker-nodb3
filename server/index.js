@@ -20,7 +20,7 @@ app.post('/api/tracker', trc.addTracker);
 app.delete('/api/tracker/:index', trc.deleteTracker);
 
 //put
-app.put('/api/tracker', trc.editTracker);
+app.put('/api/tracker/:id', trc.editTracker);
 
 
 //Listen
