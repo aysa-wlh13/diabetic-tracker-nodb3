@@ -1,0 +1,17 @@
+.Entry {
+
+}
+
+
+.entry-container {
+    border: 2px solid purple;
+
+    margin-bottom: 15px;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: stretch;
+}

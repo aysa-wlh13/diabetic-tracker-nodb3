@@ -75,7 +75,12 @@ class Body extends Component {
                 <section className= 'entry-styling'>
                     {this.state.tracker.map((element, index) => {
                         return(
-                            <Entry/>
+                            <Entry
+                            tracker={element}
+                            index={index}
+                            key={`entry ${index}`}
+                            deleteTracker={this.deleteTracker}
+                            updateState={this.updateState}/>
                         )
                     })}
                 </section>
