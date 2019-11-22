@@ -45,9 +45,9 @@ class Body extends Component {
 
           .then(res => this.setState({
               tracker: res.data
-          })
+          }))
           .catch(error => {console.log(error)})
-        )
+        
       }
 
       //Delete
@@ -55,9 +55,9 @@ class Body extends Component {
           axios.delete(`api/tracker/${index}`)
           .then(res => this.setState({
             tracker: res.data
-        })
+        }))
         .catch(error => {console.log(error)})
-      )
+      
       }
 
       //Put

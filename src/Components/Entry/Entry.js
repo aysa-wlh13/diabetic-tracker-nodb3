@@ -10,6 +10,8 @@ class Entry extends Component {
         }
     }
 
+
+
     render(){
         return(
             <div className='Entry'>
@@ -19,22 +21,26 @@ class Entry extends Component {
 
                 <article className='entry-container'>
                     
-                    <p>{this.props.tracker.bloodSugar}bg</p>
+                    <p>{this.props.tracker.bloodSugar}  bg</p>
 
                     <p>{this.props.tracker.food}</p>
 
-                    <p>{this.props.tracker.grams}g</p>
+                    <p>{this.props.tracker.grams} g</p>
 
-                    <p>{this.props.tracker.units}units</p>
+                    <p>{this.props.tracker.units} units</p>
 
-                    <p>{this.props.tracker.time}time</p>
-                    
+                    <p>
+                        {this.props.tracker.time}
+
+                    </p>
+
                     <p>{this.props.tracker.date}date</p>
 
                     <section className='button-container'>
                         <button>edit</button>
 
-                        <button>delete</button>
+                        <button className='trash-button' onClick={() => this.props. deleteTracker (this.props.index)}>delete</button>
+                        
                     </section>
 
                 </article>
