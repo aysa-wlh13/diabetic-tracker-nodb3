@@ -16,3 +16,28 @@
 .addButton{
     border: 0px;
 }
+
+.bloodSugar{
+    height: 20px;
+    width: 3vw;
+}
+
+.carbs{
+    height: 20px;
+    width: 3vw;
+}
+
+.units{
+    height: 20px;
+    width: 3vw;
+}
+
+.time{
+    height: 20px;
+    width: 4vw;
+}
+
+.date{
+    height: 20px;
+    width: 6vw;
+}

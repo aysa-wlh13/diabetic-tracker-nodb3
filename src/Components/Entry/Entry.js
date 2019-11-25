@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Entry.css";
-import trashcan from './trashcan.png';
-import edit from './edit.png';
+import trashcan2 from './trashcan2.png';
+import edit2 from './edit2.jpg';
 import squareSave from './squareSave.jpg';
 
 
@@ -55,19 +55,63 @@ class Entry extends Component {
             {this.state.editing ? (
               <div className='update-container'>
                 <section className='border'>
-                  <label>Blood Sugar:<input type="number" name='bloodSugar' value={this.state.bloodSugar}  onChange={event => this.handleChange(event)}/></label>
+                  <label>Blood Sugar:
+                    <input 
+                    className='bloodSugar'
+                    type="number" 
+                    name='bloodSugar' 
+                    value={this.state.bloodSugar}  
+                    onChange={event => this.handleChange(event)}/></label>
                 </section>
 
 
-                <label className='border'>Food:<input name='food' value={this.state.food} onChange={event => this.handleChange(event)}/></label>
+                <label 
+                className='border'>
+                  Food:
+                  <input 
+                  name='food' 
+                  value={this.state.food} 
+                  onChange={event => this.handleChange(event)}/></label>
 
-                <label className='border'>Carbs:<input name='grams' type="number" value={this.state.grams} onChange={event => this.handleChange(event)}/></label>
+                <label 
+                className='border'>
+                  Carbs:
+                  <input 
+                  className='carbs'
+                  name='grams' t
+                  ype="number"
+                  value={this.state.grams} 
+                  onChange={event => this.handleChange(event)}/></label>
 
-                <label className='border'>Units:<input name='units' type="number" value={this.state.units} onChange={event => this.handleChange(event)}/></label>
+                <label 
+                className='border'>
+                  Units:
+                  <input 
+                  className='units'
+                  name='units' 
+                  type="number" 
+                  value={this.state.units} 
+                  onChange={event => this.handleChange(event)}/></label>
 
-                <label className='border'>Time:<input name='time' type="time" value={this.state.time} onChange={event => this.handleChange(event)}/></label>
+                <label 
+                className='border'>
+                  Time:
+                  <input 
+                  className='time'
+                  name='time' 
+                  type="time" 
+                  value={this.state.time} 
+                  onChange={event => this.handleChange(event)}/></label>
 
-                <label className='border'>Date:<input name='date' type="date" value={this.state.date} onChange={event => this.handleChange(event)}/></label>
+                <label 
+                className='border'>
+                  Date:
+                  <input 
+                  className='date'
+                  name='date' 
+                  type="date" 
+                  value={this.state.date} 
+                  onChange={event => this.handleChange(event)}/></label>
 
                 <button
                   className="edit-button"
@@ -99,13 +143,13 @@ class Entry extends Component {
                   onClick={() => {
                     this.setState({ editing: true });
                   }}
-                ><img src={edit} alt='edit' height='35'/>
+                ><img src={edit2} alt='edit' height='35'/>
                 </button>
 
               <button
                 className="trash-button"
                 onClick={() => this.props.deleteTracker(this.props.index)}
-                ><img src={trashcan} alt='trashcan' height='35'/>
+                ><img src={trashcan2} alt='trashcan' height='50'/>
             </button>
 
             </article>

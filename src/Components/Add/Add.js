@@ -30,6 +30,7 @@ class Add extends Component {
             <div className='Add'>
                 <label className='border'>Blood Sugar:
                     <input 
+                    className='bloodSugar'
                     type='number'
                     name='bloodSugar'
                     value={this.state.bloodSugar}
@@ -46,6 +47,7 @@ class Add extends Component {
                 
                 <label className='border'>Carbs:
                     <input 
+                    className='carbs'
                     name='grams' 
                     type="number" 
                     value={this.state.grams} 
@@ -55,6 +57,7 @@ class Add extends Component {
 
                 <label className='border'>Units:
                     <input 
+                    className='units'
                     name='units' 
                     type="number" 
                     value={this.state.units} 
@@ -63,6 +66,7 @@ class Add extends Component {
 
                 <label className='border'>Time:
                     <input 
+                    className='time'
                     name='time' 
                     type="time" 
                     value={this.state.time} 
@@ -71,6 +75,7 @@ class Add extends Component {
 
                 <label className='border'>Date:
                     <input 
+                    className='date'
                     name='date' 
                     type="date" 
                     value={this.state.date} 
