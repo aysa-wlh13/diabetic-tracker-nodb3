@@ -39,6 +39,7 @@ class Add extends Component {
 
                 <label className='border'>Food:
                     <input 
+                    className='food'
                     name='food' 
                     value={this.state.food} 
                     onChange={event => this.handleChange(event)}/>
@@ -89,7 +90,7 @@ class Add extends Component {
                 this.state.units,
                 this.state.time,
                 this.state.date)}>
-                    <img src={add} alt='add' height='45'/>
+                    <img src={add} alt='add' height='35'/>
                 </button>
             </div>
         )

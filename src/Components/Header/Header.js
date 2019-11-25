@@ -5,7 +5,11 @@ import newLogoSmall from './newLogoSmall.png'
 function Header(){
     return(
         <div className='header'>
-            <img src={newLogoSmall} alt='logo' height='50'/>
+            <img 
+            className='logo'
+            src={newLogoSmall} 
+            alt='logo' 
+            height='50'/>
 
         </div>
     )

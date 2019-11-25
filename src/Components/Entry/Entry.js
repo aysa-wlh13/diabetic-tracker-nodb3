@@ -119,7 +119,7 @@ class Entry extends Component {
                     this.editTracker();
                   }}
                 >
-                  <img src={squareSave} alt='check mark' height='35'/>
+                  <img src={squareSave} alt='check mark' height='30'/>
                 </button>
               </div>
             ) : (
@@ -143,13 +143,13 @@ class Entry extends Component {
                   onClick={() => {
                     this.setState({ editing: true });
                   }}
-                ><img src={edit2} alt='edit' height='35'/>
+                ><img src={edit2} alt='edit' height='30'/>
                 </button>
 
               <button
                 className="trash-button"
                 onClick={() => this.props.deleteTracker(this.props.index)}
-                ><img src={trashcan2} alt='trashcan' height='50'/>
+                ><img src={trashcan2} alt='trashcan' height='35'/>
             </button>
 
             </article>

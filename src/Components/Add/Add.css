@@ -17,6 +17,10 @@
     border: 0px;
 }
 
+.food {
+    width: 90px;
+}
+
 .bloodSugar{
     height: 20px;
     width: 3vw;
@@ -34,10 +38,10 @@
 
 .time{
     height: 20px;
-    width: 4vw;
+    width: 10vw;
 }
 
 .date{
     height: 20px;
-    width: 6vw;
+    width: 7vw;
 }
