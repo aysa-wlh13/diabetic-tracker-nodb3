@@ -1,55 +1,121 @@
 import React, { Component } from "react";
-import './Entry.css';
+import "./Entry.css";
+import trashcan from './trashcan.png';
+import edit from './edit.png';
+import squareSave from './squareSave.jpg';
+
+
 
 class Entry extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            editing: false,
-            editInput: props.element
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      editing: false,
+      bloodSugar: props.tracker.bloodSugar,
+      food: props.tracker.food,
+      grams: props.tracker.grams,
+      units: props.tracker.units,
+      time: props.tracker.time,
+      date: props.tracker.date
+    };
+  }
+
+  //handleChange
+  handleChange = (event) => {
+    this.setState({
+    [event.target.name] : event.target.value
+    });
+  }
 
 
 
-    render(){
-        return(
-            <div className='Entry'>
-                <section className='update-styling'>
+  editTracker() {
+    this.props.editTracker(
+      this.props.tracker.id,
+      this.state.bloodSugar,
+      this.state.food,
+      this.state.grams,
+      this.state.units,
+      this.state.time,
+      this.state.date
+    );
 
+    this.setState({
+      editing: false
+    });
+  }
+
+  render() {
+      console.log(this.state)
+    return (
+      <div >
+
+          {/* {condition ? whentruedothis : whenfalsedothis} */}
+
+            {this.state.editing ? (
+              <div className='update-container'>
+                <section className='border'>
+                  <label>Blood Sugar:<input type="number" name='bloodSugar' value={this.state.bloodSugar}  onChange={event => this.handleChange(event)}/></label>
                 </section>
 
-                <article className='entry-container'>
-                    
-                    <p>{this.props.tracker.bloodSugar}  bg</p>
 
-                    <p>{this.props.tracker.food}</p>
+                <label className='border'>Food:<input name='food' value={this.state.food} onChange={event => this.handleChange(event)}/></label>
 
-                    <p>{this.props.tracker.grams} g</p>
+                <label className='border'>Carbs:<input name='grams' type="number" value={this.state.grams} onChange={event => this.handleChange(event)}/></label>
 
-                    <p>{this.props.tracker.units} units</p>
+                <label className='border'>Units:<input name='units' type="number" value={this.state.units} onChange={event => this.handleChange(event)}/></label>
 
-                    <p>
-                        {this.props.tracker.time}
+                <label className='border'>Time:<input name='time' type="time" value={this.state.time} onChange={event => this.handleChange(event)}/></label>
 
-                    </p>
+                <label className='border'>Date:<input name='date' type="date" value={this.state.date} onChange={event => this.handleChange(event)}/></label>
 
-                    <p>{this.props.tracker.date}date</p>
+                <button
+                  className="edit-button"
+                  onClick={() => {
+                    this.editTracker();
+                  }}
+                >
+                  <img src={squareSave} alt='check mark' height='35'/>
+                </button>
+              </div>
+            ) : (
+              <div className='entry-container'>
 
-                    <section className='button-container'>
-                        <button>edit</button>
+                <p className='border'>{this.props.tracker.bloodSugar} bg</p>
 
-                        <button className='trash-button' onClick={() => this.props. deleteTracker (this.props.index)}>delete</button>
-                        
-                    </section>
+                <p className='border'>{this.props.tracker.food}</p>
 
-                </article>
+                <p className='border'>{this.props.tracker.grams} g</p>
+
+                <p className='border'>{this.props.tracker.units} units</p>
+
+                <p className='border'>{this.props.tracker.time}</p>
+
+                <p className='border'>{this.props.tracker.date}</p>
+
+              <article className='button-container'>
+                <button
+                  className='edit-button'
+                  onClick={() => {
+                    this.setState({ editing: true });
+                  }}
+                ><img src={edit} alt='edit' height='35'/>
+                </button>
+
+              <button
+                className="trash-button"
+                onClick={() => this.props.deleteTracker(this.props.index)}
+                ><img src={trashcan} alt='trashcan' height='35'/>
+            </button>
+
+            </article>
+              </div>
+            )}
 
 
-                
-            </div>
-        )
-    }
+      </div>
+    );
+  }
 }
 
 export default Entry;

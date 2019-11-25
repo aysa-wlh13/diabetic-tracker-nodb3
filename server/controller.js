@@ -4,19 +4,17 @@ let tracker = [
         bloodSugar: 70,
         food: 'juice',
         grams: 12,
-        units:'',
+        units:'0',
         time: '12:00',
-        timeDay: 'am',
         date: '11/18/19'
     },
     {
         id: 1,
         bloodSugar: 200,
         food: '',
-        grams: '',
+        grams: 0,
         units: 4,
-        time: '4:00',
-        timeDay: 'pm',
+        time: '16:00',
         date: '11/18/19'
     },   
     {
@@ -25,8 +23,7 @@ let tracker = [
         food: 'mashed potato',
         grams: 59,
         units: 8,
-        time: '6:00',
-        timeDay: 'pm',
+        time: '18:00',
         date: '11/18/19'
     }
 ];
@@ -56,9 +53,10 @@ module.exports = {
 
     //put
     editTracker(req, res){
-        console.log('hit update', req.body)
+        console.log('hit update', req.body, req.params)
 
         let {id} = req.params
+        console.log(typeof id)
 
         let index = tracker.findIndex(element => +id === element.id)
 
@@ -73,14 +71,3 @@ module.exports = {
     }
 };
 
-// updateCompletion: (req, res) => {
-//     console.log('hit update', req.params)
-//     let { id } = req.params
-//     //could instead refer to req.params.id everywhere
-//     let index = data.findIndex(element => +id === element.id)
-
-//     if (index === -1) res.status(404).send('Could not find a matching todo')
-
-//     data[index].completed = !data[index].completed
-//     res.status(200).send(data)
-// }

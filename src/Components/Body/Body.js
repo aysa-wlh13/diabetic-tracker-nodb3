@@ -17,7 +17,6 @@ class Body extends Component {
             grams: 0,
             units:'',
             time: '',
-            timeDay: '',
             date: ''
         }
     }
@@ -39,9 +38,9 @@ class Body extends Component {
 
 
       //Post
-      addToTracker = (bloodSugar, food, grams, units, time, timeDay, date) => {
+      addToTracker = (bloodSugar, food, grams, units, time, date) => {
           console.log('hit')
-          axios.post('/api/tracker', {bloodSugar, food, grams, units, time, timeDay, date})
+          axios.post('/api/tracker', {bloodSugar, food, grams, units, time, date})
 
           .then(res => this.setState({
               tracker: res.data
@@ -61,10 +60,11 @@ class Body extends Component {
       }
 
       //Put
-      updateState = updateTracker => {
-          this.setState({
-              tracker: updateTracker
-          })
+      editTracker = (id ,bloodSugar, food, grams, units, time, date) => {
+        axios.put(`/api/tracker/${id}`, {id ,bloodSugar, food, grams, units, time, date}).then(res => this.setState({
+            tracker: res.data
+        }))
+        .catch(error => {console.log(error)})
       }
 
 
@@ -72,23 +72,26 @@ class Body extends Component {
         return(
             <div className='back'>
 
-                <section className= 'entry-styling'>
-                    {this.state.tracker.map((element, index) => {
-                        return(
-                            <Entry
-                            tracker={element}
-                            index={index}
-                            key={`entry ${index}`}
-                            deleteTracker={this.deleteTracker}
-                            updateState={this.updateState}/>
-                        )
-                    })}
-                </section>
+                <section className='add-entry-container'>
+                    <article>
+                        <Add
+                        addToTracker = {this.addToTracker}/>
+                    </article>
 
-                <article>
-                    <Add
-                    addToTracker = {this.addToTracker}/>
-                </article>
+                    <section className= 'entry-styling'>
+                        {this.state.tracker.map((element, index) => {
+                            return(
+                                <Entry
+                                tracker={element}
+                                index={index}
+                                key={`entry ${index}`}
+                                deleteTracker={this.deleteTracker}
+                                editTracker={this.editTracker}/>
+                            )
+                        })}
+                    </section>
+
+                </section>   
 
             </div>
         )
